@@ -1,0 +1,57 @@
+<style>
+    .a{
+        text-align: center;
+    }
+    .b{
+        color: crimson;
+    }
+    .formbox{
+        position: absolute;
+        margin-left: 40%;
+        margin-top: 5%;
+    }
+    </style>
+    <head>
+        <title>Posts</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    <div class="a">
+        <h1>Create Post</h1>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Blogs</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/posts">Home</a></li>
+            <li><a href="">Favourites</a></li>
+            <li><a href="">Activities</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+        </div>
+    </nav>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="formbox">
+    <div class="textbox">
+    <p>Title:<p>  
+    <input type="text" placeholder="Title" name="title">
+    </div>
+    <p>Post:</p>
+    <textarea name="article" placeholder="Write Your Day" rows="12" columns="27"></textarea><br><br>
+    <p>Owner:</p> 
+    <input type="text" placeholder="Your Name" name="author"><br><br>
+    <p>Date and Time:</p> 
+    <input type="datetime-local" name="date"><br><br>
+    <a href="/posts"><button type="submit" value="submit">Submit Article</button></a>
+    </div>
+</form>
