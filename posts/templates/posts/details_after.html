@@ -5,10 +5,8 @@
     .b{
         color: crimson;
     }
-    .formbox{
-        position: absolute;
-        margin-left: 40%;
-        margin-top: 5%;
+    #paragraph{
+      font-size: 23px;
     }
     </style>
     <head>
@@ -19,9 +17,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
-    <div class="a">
-        <h1>Create Post</h1>
-    </div>
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -29,7 +25,7 @@
           </div>
           <ul class="nav navbar-nav">
             <li class="active"><a href="/posts">Home</a></li>
-            <li><a href="">Favourites</a></li>
+            <li><a href="/posts/create_post">Create Post</a></li>
             <li><a href="">Activities</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -38,21 +34,11 @@
           </ul>
         </div>
     </nav>
-
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="formbox">
-    <div class="textbox">
-    <p>Title:<p>  
-    <input type="text" placeholder="Title" name="title">
+    <div class="a">
+            <h1>{{ obj.heading }}</h1>
     </div>
-    <p>Post:</p>
-    <textarea name="article" placeholder="Write Your Day" rows="12" columns="27"></textarea><br><br>
-    <p>Owner:</p> 
-    <input type="text" placeholder="Your Name" name="author"><br><br>
-    <p>Upload Image</p>
-    <input type="file" name="pic" accept="image/*"><br><br> 
-    <a href="/posts"><button type="submit" value="submit">Submit Article</button></a>
-    </div>
-</form>
+<div class="container-fluid">
+<p id="paragraph">{{ obj.new_post }}</p>
+</div>
+<button>Delete Post</button>
+<button>Edit Post</button>

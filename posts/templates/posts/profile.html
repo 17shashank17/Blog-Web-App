@@ -5,9 +5,7 @@
         .b{
             color: crimson;
         }
-        #paragraph{
-          font-size: 23px;
-        }
+        
         </style>
         <head>
             <title>Posts</title>
@@ -17,7 +15,9 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         </head>
-
+        <div class="a">
+            <h1>BLOGS</h1>
+        </div>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
@@ -29,16 +29,24 @@
                 <li><a href="">Activities</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                  <li><a href="/posts/profile"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
+                <li><a href="/posts/logout_user"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
               </ul>
             </div>
         </nav>
-        <div class="a">
-                <h1>{{ form1.heading }}</h1>
-               <!-- <img src="media/images/{{ form1.post_image }}"> -->
-               <img src="{{ form1.post_image.url }}" width=300>
+        
+    
+        {% for j in content %}
+        <div class="container b">
+          <a href="/posts/profile/{{ j.id }}" style="text-decoration: None">
+          <h2>{{ j.heading }}</h2>
+          {{ j.author }}
+          <br>
+          {{ j.pub_date }}
+       
+        </a>
+          
         </div>
-<div class="container-fluid">
-<p id="paragraph">{{ form1.new_post }}</p>
-</div>
+          <br>
+      
+      {% endfor %}

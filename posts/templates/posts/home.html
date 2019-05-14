@@ -5,6 +5,7 @@
 .b{
     color: crimson;
 }
+
 </style>
 <head>
     <title>Posts</title>
@@ -24,23 +25,27 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="/posts">Home</a></li>
-        <li><a href="">Favourites</a></li>
+        <li><a href="/posts/create_post">Create Post</a></li>
         <li><a href="">Activities</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/posts/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/posts/login_user"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
 </nav>
 
 {% for j in post_obj %}
   <div class="container b">
-    <a href="/posts" style="text-decoration: None">
+    <a href="/posts/{{ j.id }}" style="text-decoration: None">
     <h2>{{ j.heading }}</h2>
-    {{ j.author }}<br>
-    {{ j.pub_date }}
-    </a>
-    </div>
+    {{ j.author }}
     <br>
+    {{ j.pub_date }}
+ 
+  </a>
+    
+  </div>
+    <br>
+
 {% endfor %}
